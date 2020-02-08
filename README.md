@@ -12,7 +12,7 @@
 Spring Boot is a mature, open-source, feature-rich framework.
 
 ## Generate this project
-[Generate this initial project with start.spring.io](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.2.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.pink&artifactId=crypto&name=crypto&description=Demo%20project%20for%20Spring%20Boot&packageName=com.pink.crypto)
+[Generate this initial project with start.spring.io](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.2.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.pink&artifactId=crypto&name=crypto&description=Demo%20project%20for%20Spring%20Boot&packageName=com.pink.crypto&dependencies=web)
 
 ## Basic 
 After follow:
