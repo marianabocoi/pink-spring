@@ -21,6 +21,35 @@ https://spring.io/guides/gs/rest-service/#scratch
 ## Reference code
 https://github.com/spring-guides/gs-rest-service/tree/master/complete
 
+## Links
+http://localhost:8080/greeting
+http://localhost:8080/greeting?name=Kate
+http://localhost:8080/cesar?offset=3&text=this%20is%20a%20test
+
+## Commands used
+#### Package your jar  
+```mvn package```
+
+#### Run the app
+```java -jar target/crypto-0.0.1-SNAPSHOT.jar```
+
+#### curl commands for post varsion
+
+- encode  
+```
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data '{"text": "this is a test", "offset": 3}' "http://localhost:8080/cesar/encode"
+```
+- decode   
+```
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data '{"text": "wklv lv d whvw", "offset": 3}' "http://localhost:8080/cesar/decode"
+```
+
 ## Encrypt or decrypt messages API
 Let's make this more exciting! Implement one of the algorithms below!
 
