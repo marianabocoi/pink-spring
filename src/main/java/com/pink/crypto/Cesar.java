@@ -1,44 +1,30 @@
 package com.pink.crypto;
 
-import java.util.stream.Collectors;
-
 public class Cesar {
 
-  private final long id;
-  private final String content;
-  private final String encryptedContent;
-
-  public Cesar(long id, String content, int offset) {
-    this.id = id;
-    this.content = content;
-    this.encryptedContent = encrypt(content, offset);
+  public static String decode(String enc, int offset) {
+    return encode(enc, 26 - offset);
   }
 
-  protected static String encrypt(String text, int offset) {
-    StringBuffer encrypted = new StringBuffer();
-    for (char character : text.toCharArray()) {
-      encrypted.append(getShiftedCharacter(character, offset));
+  public static String encode(String enc, int offset) {
+    offset = offset % 26 + 26;
+    StringBuilder encoded = new StringBuilder();
+    for (char i : enc.toCharArray()) {
+      encoded.append(encodeChar(i, offset));
     }
-    return encrypted.toString();
+    return encoded.toString();
   }
 
-  private static char getShiftedCharacter(char character, int offset) {
-    if (character >= 'A' && character <= 'z') {
-      return (char) ('A' + (character % 'A' + offset) % 57);
+  private static char encodeChar(char c, int offset) {
+    char encodedChar = c;
+    if (Character.isLetter(c)) {
+      if (Character.isUpperCase(c)) {
+        return (char) ('A' + (c - 'A' + offset) % 26);
+      } else {
+        return (char) ('a' + (c - 'a' + offset) % 26);
+      }
     } else {
-      return character;
+      return c;
     }
-  }
-
-  public long getId() {
-    return id;
-  }
-
-  public String getContent() {
-    return content;
-  }
-
-  public String getEncryptedContent() {
-    return encryptedContent;
   }
 }
